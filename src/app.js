@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/webhook', webHookSzchat);
 
-app.listen(3000, () => {
+app.listen(3000, '0.0.0.0',() => {
   console.log("fuuuu")
 })
 
