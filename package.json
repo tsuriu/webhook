@@ -1,14 +1,16 @@
 {
   "name": "webhook_fortics",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Api to webhook",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^2.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
   }
