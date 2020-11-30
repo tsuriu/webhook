@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/webhook', webHookSzchat);
+app.use('/', webHookSzchat);
 
 app.listen(3000, '0.0.0.0',() => {
   console.log("fuuuu")
