@@ -1,10 +1,10 @@
+var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var express = require('express');
 var bodyParser = require('body-parser');
 
 var webHookSzchat = require('./routes/webhook.js')
-var credentials = require('./ssl/credentials.js')
 
 var app = express();
 
@@ -16,5 +16,9 @@ app.use('/webhook', webHookSzchat);
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(8080);
-httpsServer.listen(8443);
+httpServer.listen(80);
+httpsServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/api.squidtelecom.com.br/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/api.squidtelecom.com.br/cert.pem'),
+    passphrase: 'YOUR PASSPHRASE HERE'
+}).listen(443);
